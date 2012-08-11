@@ -1,4 +1,4 @@
-; autohotkey�𖳌��ɂ������E�B���h�E�ꗗ ineffective window list
+; autohotkeyを無効にしたいウィンドウ一覧 ineffective window list
 is_target()
 {
 	if WinActive("ahk_class PuTTY")
@@ -7,16 +7,16 @@ is_target()
 	|| WinActive("ahk_class Putty")
 	|| WinActive("ahk_class mintty")
 ;	|| WinActive("ahk_class wndclass_desked_gsk") ;VisualStudio
-;	|| WinActive("ahk_class XEmacs") ;Cygwin���XEmacs
-;	|| WinActive("ahk_class Vim");Windows���GVIM 
+;	|| WinActive("ahk_class XEmacs") ;Cygwin上のXEmacs
+;	|| WinActive("ahk_class Vim");Windows上のGVIM 
 ;	|| WinActive("ahk_class SunAwtFrame")
 ;	|| WinActive("ahk_class cygwin/x X rl-xterm-XTerm-0")
     Return 1
 	Return 0
 }
 
-; �u���E�U�����̃E�B���h�E�ꗗ
-; [ctrl+w]�𖳌��A�؂����[ctrl+q]�ōs��
+; ブラウザ扱いのウィンドウ一覧
+; [ctrl+w]を無効、切り取りは[ctrl+q]で行う
 is_browser()
 {
 	If WinActive("ahk_class ahk_class ExploreWClass")  ;;WindowsXP Explorer

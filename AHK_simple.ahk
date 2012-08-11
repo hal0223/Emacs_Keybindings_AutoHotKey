@@ -1,20 +1,20 @@
 ;;//////////////////////////////////////////////////////////////////////
 ;;//////////////////////////////////////////////////////////////////////
 ;;//////////////////////////////////////////////////////////////////////
-;;’á‹@”\‚¾‚¯‚ÇŠÈŒ‰‚È‚â‚Â
+;;ä½æ©Ÿèƒ½ã ã‘ã©ç°¡æ½”ãªã‚„ã¤
 ;;
-;;ã‚Ì‚æ‚è‚Í‹@”\“I‚É‚Í—ò‚è‚Ü‚·‚ªCƒ\[ƒXƒR[ƒh‚ÍŒ©‚â‚·‚¢‚Å‚·D
-;;’·”Ng‚Á‚Ä‚¢‚½‚Ì‚Å“®ì‚àŠmÀ‚Å‚·D
-;;ƒXƒNƒŠƒvƒg
+;;ä¸Šã®ã‚ˆã‚Šã¯æ©Ÿèƒ½çš„ã«ã¯åŠ£ã‚Šã¾ã™ãŒï¼Œã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã¯è¦‹ã‚„ã™ã„ã§ã™ï¼
+;;é•·å¹´ä½¿ã£ã¦ã„ãŸã®ã§å‹•ä½œã‚‚ç¢ºå®Ÿã§ã™ï¼
+;;ã‚¹ã‚¯ãƒªãƒ—ãƒˆ
 ;;
-;; Emacs•—ƒL[ƒoƒCƒ“ƒh
+;; Emacsé¢¨ã‚­ãƒ¼ãƒã‚¤ãƒ³ãƒ‰
 ;;
 
-; ‘I‘ğƒ‚[ƒh‚ª—LŒø‚È‚ç1A–³Œø‚È‚ç0
+; é¸æŠãƒ¢ãƒ¼ãƒ‰ãŒæœ‰åŠ¹ãªã‚‰1ã€ç„¡åŠ¹ãªã‚‰0
 mode = 0
 
-; Emacs•—ƒL[ƒoƒCƒ“ƒh‚ğ–³Œø‚É‚µ‚½‚¢ƒEƒBƒ“ƒhƒE
-; •K—v‚Ì–³‚¢•”•ª‚ÍƒRƒƒ“ƒgƒAƒEƒg‚µ‚Ä‰º‚³‚¢
+; Emacsé¢¨ã‚­ãƒ¼ãƒã‚¤ãƒ³ãƒ‰ã‚’ç„¡åŠ¹ã«ã—ãŸã„ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦
+; å¿…è¦ã®ç„¡ã„éƒ¨åˆ†ã¯ã‚³ãƒ¡ãƒ³ãƒˆã‚¢ã‚¦ãƒˆã—ã¦ä¸‹ã•ã„
 is_target()
 {
 	IfWinActive,ahk_class ConsoleWindowClass ;Cygwin
@@ -28,18 +28,18 @@ is_target()
 	IfWinActive,ahk_class Emacs ;putty
 		Return 1  
 
-;	IfWinActive,ahk_class Vim ;Windowsã‚ÌGVIM
+;	IfWinActive,ahk_class Vim ;Windowsä¸Šã®GVIM
 ;		Return 1
 ;	IfWinActive,ahk_class Xming X
 ;		Return 1
 ;	IfWinActive,ahk_class SunAwtFrame
 ;		Return 1
-;	IfWinActive,ahk_class XEmacs ;Cygwinã‚ÌXEmacs
+;	IfWinActive,ahk_class XEmacs ;Cygwinä¸Šã®XEmacs
 ;		Return 1
 	Return 0
 }
 
-; crsr‚Æfunc‚Ì‹¤’Ê•”•ª
+; crsrã¨funcã®å…±é€šéƒ¨åˆ†
 init(ByRef key)
 {
 	IfInString,key,$
@@ -53,8 +53,8 @@ init(ByRef key)
 		Return 1
 }
 
-; key‚Éfunc‚Ì‹@”\‚ğŠ„‚è“–‚Ä‚é
-; ƒJ[ƒ\ƒ‹(cursor)ˆÚ“®Œn
+; keyã«funcã®æ©Ÿèƒ½ã‚’å‰²ã‚Šå½“ã¦ã‚‹
+; ã‚«ãƒ¼ã‚½ãƒ«(cursor)ç§»å‹•ç³»
 crsr(key,func)
 {
 	if(init(key))
@@ -67,7 +67,7 @@ crsr(key,func)
 	}
 }
 
-; ‹@”\(func)Œn
+; æ©Ÿèƒ½(func)ç³»
 func(key,func)
 {
 	if(init(key))
@@ -82,7 +82,7 @@ func(key,func)
 }
 
 
-;C-Space‚Åmode‚ğƒgƒOƒ‹
+;C-Spaceã§modeã‚’ãƒˆã‚°ãƒ«
 ;$^{Space}::
 $^vk20sc039::
 	if (is_target())
@@ -97,7 +97,7 @@ $^vk20sc039::
 	Return
 
 
-; ƒJ[ƒ\ƒ‹ˆÚ“® + ‘I‘ğ
+; ã‚«ãƒ¼ã‚½ãƒ«ç§»å‹• + é¸æŠ
 $^p::crsr(A_ThisHotkey,"UP")
 $^n::crsr(A_ThisHotkey,"Down")
 $^b::crsr(A_ThisHotkey,"Left")
@@ -107,7 +107,7 @@ $^e::crsr(A_ThisHotkey,"END")
 $^v::crsr(A_ThisHotkey,"PgDn")
 $!v::crsr(A_ThisHotkey,"PgUp")
 
-; ‹@”\ƒL[
+; æ©Ÿèƒ½ã‚­ãƒ¼
 $^i::func(A_ThisHotkey,"Tab")
 $^m::func(A_ThisHotkey,"Return")
 $^g::func(A_ThisHotkey,"ESC")
@@ -118,7 +118,7 @@ $^s::func(A_ThisHotkey,"^f")
 $^/::func(A_ThisHotkey,"^z")
 $!w::func(A_ThisHotkey,"^c")
 
-;—áŠOƒL[ƒoƒCƒ“ƒh
+;ä¾‹å¤–ã‚­ãƒ¼ãƒã‚¤ãƒ³ãƒ‰
 $^k::
 	mode = 0
 	if (is_target())
@@ -140,12 +140,12 @@ $^.::
 	Return
 
 #k::
-	MsgBox, 4,, ƒXƒNƒŠƒvƒg‚ğI—¹‚µ‚Ü‚·‚©?,
+	MsgBox, 4,, ã‚¹ã‚¯ãƒªãƒ—ãƒˆã‚’çµ‚äº†ã—ã¾ã™ã‹?,
 	IfMsgBox, Yes
 		ExitApp
 	Return
 
-;;;googleIME“w—Í‚ÌÕ
+;;;googleIMEåŠªåŠ›ã®è·¡
 	; IfWinActive,ahk_class GoogleapaneseInputCandidateWindow
 	; 	Return 1 
 	; IfWinActive,ahk_class GoogleJapaneseInputCompositionWindow

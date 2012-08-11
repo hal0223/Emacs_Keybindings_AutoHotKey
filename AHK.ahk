@@ -45,7 +45,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; [ref. AutoHotkeyJp]                              
 ; https://sites.google.com/site/autohotkeyjp/
-; [ref. WindowsでEmacs風キーバインド]
+; [ref. Windows縺ｧEmacs鬚ｨ繧ｭ繝ｼ繝舌う繝ｳ繝云
 ; http://usi3.com/index.php?title=Windows%E3%81%A7Emacs%E9%A2%A8%E3%82%AD%E3%83%BC%E3%83%90%E3%82%A4%E3%83%B3%E3%83%89
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 

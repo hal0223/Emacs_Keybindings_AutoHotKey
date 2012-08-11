@@ -9,7 +9,7 @@
 	Else
 		kill_ring_save()
 	Return
-;;;1‰æ–Êã‚Ö
+;;;1ç”»é¢ä¸Šã¸
 !v::
 	If is_target()
 		Send %A_ThisHotkey%

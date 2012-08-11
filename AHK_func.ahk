@@ -1,7 +1,7 @@
-; C-x ‚ª‰Ÿ‚³‚ê‚é‚Æ1‚É‚È‚é
+; C-x ãŒæŠ¼ã•ã‚Œã‚‹ã¨1ã«ãªã‚‹
 is_pre_x = 0
 
-; C-Space ‚ª‰Ÿ‚³‚ê‚é‚Æ1‚É‚È‚é
+; C-Space ãŒæŠ¼ã•ã‚Œã‚‹ã¨1ã«ãªã‚‹
 is_pre_spc = 0
 
 delete_char()

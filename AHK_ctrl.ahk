@@ -145,7 +145,7 @@ RCtrl::return
 	Else
 		move_end_of_line()
 	Return
-;;;1•¶šŸ‚Ö
+;;;1æ–‡å­—æ¬¡ã¸
 ^f::
 	If is_target()
 		Send %A_ThisHotkey%
@@ -157,28 +157,28 @@ RCtrl::return
 		forward_char()
 	}
 	Return  
-;;;ˆê•¶š‘O‚Ö
+;;;ä¸€æ–‡å­—å‰ã¸
 ^b::
 	If is_target()
 		Send %A_ThisHotkey%
 	Else
 		backward_char()
 	Return
-;;;ˆêsã‚Ö
+;;;ä¸€è¡Œä¸Šã¸
 ^p::
 	If is_target()
 		Send %A_ThisHotkey%
 	Else
 		previous_line()
 	Return
-;;;ˆês‰º‚Ö
+;;;ä¸€è¡Œä¸‹ã¸
 ^n::
 	If is_target()
 		Send %A_ThisHotkey%
 	Else
 		next_line()
 	Return
-;;;1‰æ–Ê‰º‚Ö
+;;;1ç”»é¢ä¸‹ã¸
 ^v::
 	If is_target()
 		Send %A_ThisHotkey%

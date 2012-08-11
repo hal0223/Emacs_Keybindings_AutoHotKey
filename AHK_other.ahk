@@ -8,7 +8,7 @@
 
 
 ; #k::
-; 	MsgBox, 4,, スクリプトを終了しますか?,
+; 	MsgBox, 4,, 繧ｹ繧ｯ繝ｪ繝励ヨ繧堤ｵゆｺ�縺励∪縺吶°?,
 ; 	IfMsgBox, Yes
 ; 		ExitApp
 ; 	Return
