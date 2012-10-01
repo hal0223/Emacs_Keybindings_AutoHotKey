@@ -1,17 +1,17 @@
-+^d::
+﻿+^d::
 	IfWinActive,ahk_class SunAwtFrame ;Astah
 		Send ^d
     Return
 
 !w::
-	If is_target()
+	If is_ineffective()
 		Send %A_ThisHotkey%
 	Else
 		kill_ring_save()
 	Return
 ;;;1画面上へ
 !v::
-	If is_target()
+	If is_ineffective()
 		Send %A_ThisHotkey%
 	Else
 		scroll_up()

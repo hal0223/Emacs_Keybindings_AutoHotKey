@@ -1,9 +1,8 @@
-; autohotkeyを無効にしたいウィンドウ一覧 ineffective window list
-is_target()
+﻿; autohotkeyを無効にしたいウィンドウ一覧 ineffective window list
+is_ineffective()
 {
 	if WinActive("ahk_class PuTTY")
 	|| WinActive("ahk_class Emacs") 
-	|| WinActive("ahk_class MEADOW")
 	|| WinActive("ahk_class Putty")
 	|| WinActive("ahk_class mintty")
 ;	|| WinActive("ahk_class wndclass_desked_gsk") ;VisualStudio
@@ -11,8 +10,10 @@ is_target()
 ;	|| WinActive("ahk_class Vim");Windows上のGVIM 
 ;	|| WinActive("ahk_class SunAwtFrame")
 ;	|| WinActive("ahk_class cygwin/x X rl-xterm-XTerm-0")
-    Return 1
-	Return 0
+    {   
+        Return 1
+    }
+   	Return 0
 }
 
 ; ブラウザ扱いのウィンドウ一覧
@@ -25,7 +26,8 @@ is_browser()
 	|| WinActive("ahk_class TXFinder.UnicodeClass") ;Finder
 	|| WinActive("ahk_class MozillaWindowClass")
 	|| WinActive("ahk_class Chrome_WidgetWin_1")
-	|| WinActive("ahk_class Chrome_WidgetWin_0")
-	Return 1
-	Return 0
+    {   
+        Return 1
+    }
+    Return 0
 }
