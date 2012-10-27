@@ -2,6 +2,8 @@
 ;                                             ;;
 ; Emacsキー定義                               ;;
 ;                                             ;;
+; WindowsでEmacs風キーバインド - Usipedia 
+; http://usi3.com/index.php?title=Windows%E3%81%A7Emacs%E9%A2%A8%E3%82%AD%E3%83%BC%E3%83%90%E3%82%A4%E3%83%B3%E3%83%89
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ^vk20sc039::   ;[Ctrl+Spaceキー]
@@ -27,6 +29,9 @@
         Return
 !v::
 	scroll_up()
+	Return
+!w::
+	save_region()
 	Return
 ^c::
         kill_emacs()
@@ -106,7 +111,6 @@ is_pre_x = 0
 ; C-Space の押し下げフラグ
 is_pre_spc = 0
 
-
 ;;;;;;関数;;;;;;;;;;;;;;;;;;;;;;
 pre_space()
 {
@@ -128,28 +132,6 @@ pre_x()
 		Send %A_ThisHotkey%
 	}Else{
 		is_pre_x = 1
-	}
-}
-
-select_all()
-{
-	global
- 	If is_ineffective(){
-		Send %A_ThisHotkey%
-	}Else{
-		Send !{a}
-		is_pre_spc = 0
-	}
-}
-
-kill_buffer()
-{
-	global
- 	If is_ineffective(){
-		Send %A_ThisHotkey%
-	}Else{
-		Send ^{w}
-		is_pre_spc = 0
 	}
 }
 
@@ -193,8 +175,10 @@ previous_line()
  	If is_ineffective(){
 		Send %A_ThisHotkey%
 	}Else{
-		Send {Up}
-		is_pre_spc = 0
+		if is_pre_spc
+			Send +{Up}
+		else
+			Send {Up}
 	}
 }
 ;一行下へ移動
@@ -204,10 +188,113 @@ next_line()
  	If is_ineffective(){
 		Send %A_ThisHotkey%
 	}Else{
-		Send {Down}
+		if is_pre_spc
+			Send +{Down}
+		else
+			Send {Down}
+	}
+}
+
+move_beginning_of_line()
+{
+	global
+ 	If is_ineffective(){
+		Send %A_ThisHotkey%
+	}Else{
+	if is_pre_spc
+		Send +{HOME}
+	Else
+		Send {HOME}
+	Return
+	}
+}
+move_end_of_line()
+{
+	global
+ 	If is_ineffective(){
+		Send %A_ThisHotkey%
+	}Else{
+	if is_pre_spc
+		Send +{END}
+	Else
+		Send {END}
+	}
+}
+forward_char()
+{
+	global
+ 	If is_ineffective(){
+		Send %A_ThisHotkey%
+	}Else{
+	if is_pre_spc
+		Send +{Right}
+	Else
+		Send {Right}
+	}
+}
+backward_char()
+{
+	global
+ 	If is_ineffective(){
+		Send %A_ThisHotkey%
+	}Else{
+	if is_pre_spc
+		Send +{Left} 
+	Else
+		Send {Left}
+	Return
+	}
+}
+
+scroll_up()
+{
+	global
+ 	If is_ineffective(){
+		Send %A_ThisHotkey%
+	}Else{
+		if is_pre_spc
+		   Send +{PgUp}
+		Else
+		   Send {PgUp}
+	}
+}
+
+scroll_down()
+{
+	global
+ 	If is_ineffective(){
+		Send %A_ThisHotkey%
+	}Else{
+		if is_pre_spc
+		   Send +{PgDn}
+		Else
+		   Send {PgDn}
+	}
+}
+
+select_all()
+{
+	global
+ 	If is_ineffective(){
+		Send %A_ThisHotkey%
+	}Else{
+		Send ^{a}
 		is_pre_spc = 0
 	}
 }
+
+kill_buffer()
+{
+	global
+ 	If is_ineffective(){
+		Send %A_ThisHotkey%
+	}Else{
+		Send ^{w}
+		is_pre_spc = 0
+	}
+}
+
+
 ;後一文字削除
 delete_char()
 {
@@ -257,7 +344,9 @@ quit()
  	If is_ineffective(){
 		Send %A_ThisHotkey%
 	}Else{
-		Send {ESC}
+		Send, {ESC}
+		Send, {Left}
+		Send, {Right}
 		global is_pre_spc = 0
 	}
 }
@@ -311,6 +400,7 @@ isearch_backward()
 		is_pre_spc = 0
 	}
 }
+
 kill_region()
 {
 	If is_ineffective(){
@@ -320,6 +410,17 @@ kill_region()
 		global is_pre_spc = 0
 	}
 }
+
+save_region()
+{
+	If is_ineffective(){
+		Send %A_ThisHotkey%
+	}Else{
+		Send ^c
+		global is_pre_spc = 0
+	}
+}
+
 yank()
 {
 	global
@@ -364,6 +465,7 @@ save_buffer()
 	}
 	Return
 }
+
 kill_emacs()
 {
 	global
@@ -372,89 +474,5 @@ kill_emacs()
 	}Else{
 		Send !{F4}
 		is_pre_x = 0
-	}
-}
- 
-move_beginning_of_line()
-{
-	global
- 	If is_ineffective(){
-		Send %A_ThisHotkey%
-	}Else{
-	if is_pre_spc
-		Send +{HOME}
-	Else
-		Send {HOME}
-	Return
-	}
-}
-move_end_of_line()
-{
-	global
- 	If is_ineffective(){
-		Send %A_ThisHotkey%
-	}Else{
-	if is_pre_spc
-		Send +{END}
-	Else
-		Send {END}
-	}
-}
-forward_char()
-{
-	global
- 	If is_ineffective(){
-		Send %A_ThisHotkey%
-	}Else{
-	if is_pre_spc
-		Send +{Right}
-	Else
-		Send {Right}
-	}
-}
-backward_char()
-{
-	global
- 	If is_ineffective(){
-		Send %A_ThisHotkey%
-	}Else{
-	if is_pre_spc
-		Send +{Left} 
-	Else
-		Send {Left}
-	Return
-	}
-}
-scroll_up()
-{
-	global
- 	If is_ineffective(){
-		Send %A_ThisHotkey%
-	}Else{
-		if is_pre_spc
-		   Send +{PgUp}
-		Else
-		   Send {PgUp}
-	}
-}
-scroll_down()
-{
-	global
- 	If is_ineffective(){
-		Send %A_ThisHotkey%
-	}Else{
-		if is_pre_spc
-		   Send +{PgDn}
-		Else
-		   Send {PgDn}
-	}
-}
-back_page()
-{
- 	If is_ineffective(){
-		Send %A_ThisHotkey%
-	}Else{
-	      Send !{Left}
-	      global is_pre_spc = 0
 	}
 }
